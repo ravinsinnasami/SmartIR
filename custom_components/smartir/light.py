@@ -47,7 +47,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
         vol.Required(CONF_DEVICE_CODE): cv.positive_int,
         vol.Required(CONF_CONTROLLER_DATA): get_controller_schema(vol, cv),
-        vol.Optional(CONF_DELAY, default=DEFAULT_DELAY): cv.string,
+        vol.Optional(CONF_DELAY, default=DEFAULT_DELAY): cv.positive_float,
         vol.Optional(CONF_POWER_SENSOR): cv.entity_id,
         vol.Optional(
             CONF_POWER_SENSOR_DELAY, default=DEFAULT_POWER_SENSOR_DELAY
@@ -322,6 +322,7 @@ class SmartIRLight(LightEntity, RestoreEntity):
             try:
                 for _ in range(count):
                     await self._controller.send(remote_cmd)
+                    await asyncio.sleep(self._delay)
             except Exception as e:
                 _LOGGER.exception(e)
 
