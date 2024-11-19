@@ -345,9 +345,10 @@ class SmartIRLight(LightEntity, RestoreEntity):
         self.async_write_ha_state()
 
     async def async_turn_off(self):
-        self._state = STATE_OFF
-        await self.send_command(CMD_POWER_OFF)
-        self.async_write_ha_state()
+        if self._state != STATE_OFF:
+            self._state = STATE_OFF
+            await self.send_command(CMD_POWER_OFF)
+            self.async_write_ha_state()
 
     async def async_toggle(self):
         await (self.async_turn_on() if not self.is_on else self.async_turn_off())
