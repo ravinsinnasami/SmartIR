@@ -40,6 +40,8 @@ CMD_COLORMODE_WARMER = "warmer"
 CMD_POWER_ON = "on"
 CMD_POWER_OFF = "off"
 CMD_NIGHTLIGHT = "night"
+CMD_COLORTEMPERATURE = "colorTemperature"
+CMD_BRIGHTNESS = "brightness"
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
@@ -105,13 +107,13 @@ class SmartIRLight(LightEntity, RestoreEntity):
         self._colortemps = device_data["colorTemperature"]
         self._commands = device_data["commands"]
 
-        if (
+        if CMD_COLORTEMPERATURE in self._commands or (
             CMD_COLORMODE_COLDER in self._commands
             and CMD_COLORMODE_WARMER in self._commands
         ):
             self._colortemp = self.max_color_temp_kelvin
 
-        if CMD_NIGHTLIGHT in self._commands or (
+        if CMD_NIGHTLIGHT in self._commands or CMD_BRIGHTNESS in self._commands or (
             CMD_BRIGHTNESS_INCREASE in self._commands
             and CMD_BRIGHTNESS_DECREASE in self._commands
         ):
@@ -231,26 +233,40 @@ class SmartIRLight(LightEntity, RestoreEntity):
             target = params.get(ATTR_COLOR_TEMP_KELVIN)
             old_color_temp = DeviceData.closest_match(self._colortemp, self._colortemps)
             new_color_temp = DeviceData.closest_match(target, self._colortemps)
-            _LOGGER.debug(
-                f"Changing color temp from {self._colortemp}K step {old_color_temp} to {target}K step {new_color_temp}"
-            )
-
-            steps = new_color_temp - old_color_temp
-            did_something = True
-            if steps < 0:
-                cmd = CMD_COLORMODE_WARMER
-                steps = abs(steps)
-            else:
-                cmd = CMD_COLORMODE_COLDER
-
-            if steps > 0 and cmd:
-                # If we are heading for the highest or lowest value,
-                # take the opportunity to resync by issuing enough
-                # commands to go the full range.
-                if new_color_temp == len(self._colortemps) - 1 or new_color_temp == 0:
-                    steps = len(self._colortemps)
+            final_color_temp = f"{self._colortemps[new_color_temp]}"
+            if (
+                CMD_COLORTEMPERATURE in self._commands
+                and isinstance(self._commands[CMD_COLORTEMPERATURE], dict)
+                and final_color_temp in self._commands[CMD_COLORTEMPERATURE]
+            ):
+                _LOGGER.debug(
+                    f"Changing color temp from {self._colortemp}K to {target}K using found remote command for {final_color_temp}K"
+                )
+                did_something = True
+                found_command = self._commands[CMD_COLORTEMPERATURE][final_color_temp]
                 self._colortemp = self._colortemps[new_color_temp]
-                await self.send_command(cmd, steps)
+                await self.send_remote_command(found_command)
+            else:
+                _LOGGER.debug(
+                    f"Changing color temp from {self._colortemp}K step {old_color_temp} to {target}K step {new_color_temp}"
+                )
+
+                steps = new_color_temp - old_color_temp
+                if steps < 0:
+                    cmd = CMD_COLORMODE_WARMER
+                    steps = abs(steps)
+                else:
+                    cmd = CMD_COLORMODE_COLDER
+
+                if steps > 0 and cmd:
+                    # If we are heading for the highest or lowest value,
+                    # take the opportunity to resync by issuing enough
+                    # commands to go the full range.
+                    if new_color_temp == len(self._colortemps) - 1 or new_color_temp == 0:
+                        steps = len(self._colortemps)
+                    did_something = True
+                    self._colortemp = self._colortemps[new_color_temp]
+                    await self.send_command(cmd, steps)
 
         if ATTR_BRIGHTNESS in params and self._support_brightness:
             # before checking the supported brightnesses, make a special case
@@ -266,30 +282,43 @@ class SmartIRLight(LightEntity, RestoreEntity):
                 old_brightness = DeviceData.closest_match(
                     self._brightness, self._brightnesses
                 )
-                new_brightness = DeviceData.closest_match(target, self._brightnesses)
-                did_something = True
-                _LOGGER.debug(
-                    f"Changing brightness from {self._brightness} step {old_brightness} to {target} step {new_brightness}"
-                )
-                steps = new_brightness - old_brightness
-                if steps < 0:
-                    cmd = CMD_BRIGHTNESS_DECREASE
-                    steps = abs(steps)
-                else:
-                    cmd = CMD_BRIGHTNESS_INCREASE
-
-                if steps > 0 and cmd:
-                    # If we are heading for the highest or lowest value,
-                    # take the opportunity to resync by issuing enough
-                    # commands to go the full range.
-                    if (
-                        new_brightness == len(self._brightnesses) - 1
-                        or new_brightness == 0
-                    ):
-                        steps = len(self._brightnesses)
+                new_brightness = DeviceData.closest_match(target, self._brightnesses)                
+                final_brightness = f"{self._brightnesses[new_brightness]}"
+                if (
+                    CMD_BRIGHTNESS in self._commands
+                    and isinstance(self._commands[CMD_BRIGHTNESS], dict)
+                    and final_brightness in self._commands[CMD_BRIGHTNESS]
+                ):
+                    _LOGGER.debug(
+                        f"Changing brightness from {self._brightness} to {target} using found remote command for {final_brightness}"
+                    )
                     did_something = True
+                    found_command = self._commands[CMD_BRIGHTNESS][final_brightness]
                     self._brightness = self._brightnesses[new_brightness]
-                    await self.send_command(cmd, steps)
+                    await self.send_remote_command(found_command)
+                else:
+                    _LOGGER.debug(
+                        f"Changing brightness from {self._brightness} step {old_brightness} to {target} step {new_brightness}"
+                    )
+                    steps = new_brightness - old_brightness
+                    if steps < 0:
+                        cmd = CMD_BRIGHTNESS_DECREASE
+                        steps = abs(steps)
+                    else:
+                        cmd = CMD_BRIGHTNESS_INCREASE
+
+                    if steps > 0 and cmd:
+                        # If we are heading for the highest or lowest value,
+                        # take the opportunity to resync by issuing enough
+                        # commands to go the full range.
+                        if (
+                            new_brightness == len(self._brightnesses) - 1
+                            or new_brightness == 0
+                        ):
+                            steps = len(self._brightnesses)
+                        did_something = True
+                        self._brightness = self._brightnesses[new_brightness]
+                        await self.send_command(cmd, steps)
 
         # If we did nothing above, and the light is not detected as on
         # already issue the on command, even though we think the light
@@ -317,6 +346,9 @@ class SmartIRLight(LightEntity, RestoreEntity):
             return
         _LOGGER.debug(f"Sending {cmd} remote command {count} times.")
         remote_cmd = self._commands.get(cmd)
+        await self.send_remote_command(remote_cmd, count)
+
+    async def send_remote_command(self, remote_cmd, count=1):
         async with self._temp_lock:
             self._on_by_remote = False
             try:
