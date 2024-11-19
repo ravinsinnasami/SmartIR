@@ -223,8 +223,20 @@ class SmartIRLight(LightEntity, RestoreEntity):
         # Turn the light on if off
         if self._state != STATE_ON and not self._on_by_remote:
             self._state = STATE_ON
-            did_something = True
-            await self.send_command(CMD_POWER_ON)
+            if CMD_POWER_ON in self._commands:
+                did_something = True
+                await self.send_command(CMD_POWER_ON)
+            else:
+                if ATTR_COLOR_TEMP_KELVIN not in params:
+                    _LOGGER.debug(
+                        f"No power on command found, setting last color {self._colortemp}K"
+                    )
+                    params[ATTR_COLOR_TEMP_KELVIN] = self._colortemp
+                if ATTR_BRIGHTNESS not in params:
+                    _LOGGER.debug(
+                        f"No power on command found, setting last brightness {self._brightness}"
+                    )
+                    params[ATTR_BRIGHTNESS] = self._brightness
 
         if (
             ATTR_COLOR_TEMP_KELVIN in params
