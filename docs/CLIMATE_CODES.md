@@ -221,6 +221,7 @@ The following are the code files created by the amazing people in the community.
 <tr ><td class="file-td td_text">1880.json</td><td class="manufacturer-td td_text">Saunier Duval</td><td class="models-td td_num">1</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1900.json</td><td class="manufacturer-td td_text">TCL</td><td class="models-td td_text">TAC-12CHSD/XA21I</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1901.json</td><td class="manufacturer-td td_text">TCL</td><td class="models-td td_text">TAC-12CHSD/XA71IN</td><td class="controller-td td_text">Broadlink</td></tr>
+<tr ><td class="file-td td_text">1902.json</td><td class="manufacturer-td td_text">TCL</td><td class="models-td td_text">TAC-09CSA, TAC-12CSA, TAC-18CSA, TAC-24CSA</td><td class="controller-td td_text">UFOR11</td></tr>
 <tr ><td class="file-td td_text">1920.json</td><td class="manufacturer-td td_text">Aokesi</td><td class="models-td td_text">Unknown</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1940.json</td><td class="manufacturer-td td_text">Electra</td><td class="models-td td_text">Unknown</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1941.json</td><td class="manufacturer-td td_text">Electra</td><td class="models-td td_text">Unknown</td><td class="controller-td td_text">Broadlink</td></tr>
