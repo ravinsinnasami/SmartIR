@@ -242,6 +242,7 @@ class SmartIRLight(LightEntity, RestoreEntity):
             ATTR_COLOR_TEMP_KELVIN in params
             and ColorMode.COLOR_TEMP in self.supported_color_modes
         ):
+            did_something = True
             target = params.get(ATTR_COLOR_TEMP_KELVIN)
             old_color_temp = DeviceData.closest_match(self._colortemp, self._colortemps)
             new_color_temp = DeviceData.closest_match(target, self._colortemps)
@@ -254,7 +255,6 @@ class SmartIRLight(LightEntity, RestoreEntity):
                 _LOGGER.debug(
                     f"Changing color temp from {self._colortemp}K to {target}K using found remote command for {final_color_temp}K"
                 )
-                did_something = True
                 found_command = self._commands[CMD_COLORTEMPERATURE][final_color_temp]
                 self._colortemp = self._colortemps[new_color_temp]
                 await self.send_remote_command(found_command)
@@ -262,7 +262,6 @@ class SmartIRLight(LightEntity, RestoreEntity):
                 _LOGGER.debug(
                     f"Changing color temp from {self._colortemp}K step {old_color_temp} to {target}K step {new_color_temp}"
                 )
-
                 steps = new_color_temp - old_color_temp
                 if steps < 0:
                     cmd = CMD_COLORMODE_WARMER
@@ -276,7 +275,6 @@ class SmartIRLight(LightEntity, RestoreEntity):
                     # commands to go the full range.
                     if new_color_temp == len(self._colortemps) - 1 or new_color_temp == 0:
                         steps = len(self._colortemps)
-                    did_something = True
                     self._colortemp = self._colortemps[new_color_temp]
                     await self.send_command(cmd, steps)
 
@@ -290,6 +288,7 @@ class SmartIRLight(LightEntity, RestoreEntity):
                 await self.send_command(CMD_NIGHTLIGHT)
 
             elif self._brightnesses:
+                did_something = True
                 target = params.get(ATTR_BRIGHTNESS)
                 old_brightness = DeviceData.closest_match(
                     self._brightness, self._brightnesses
@@ -304,7 +303,6 @@ class SmartIRLight(LightEntity, RestoreEntity):
                     _LOGGER.debug(
                         f"Changing brightness from {self._brightness} to {target} using found remote command for {final_brightness}"
                     )
-                    did_something = True
                     found_command = self._commands[CMD_BRIGHTNESS][final_brightness]
                     self._brightness = self._brightnesses[new_brightness]
                     await self.send_remote_command(found_command)
@@ -328,7 +326,6 @@ class SmartIRLight(LightEntity, RestoreEntity):
                             or new_brightness == 0
                         ):
                             steps = len(self._brightnesses)
-                        did_something = True
                         self._brightness = self._brightnesses[new_brightness]
                         await self.send_command(cmd, steps)
 
