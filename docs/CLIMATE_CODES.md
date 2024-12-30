@@ -222,6 +222,7 @@ The following are the code files created by the amazing people in the community.
 <tr ><td class="file-td td_text">1880.json</td><td class="manufacturer-td td_text">Saunier Duval</td><td class="models-td td_num">1</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1900.json</td><td class="manufacturer-td td_text">TCL</td><td class="models-td td_text">TAC-12CHSD/XA21I</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1901.json</td><td class="manufacturer-td td_text">TCL</td><td class="models-td td_text">TAC-12CHSD/XA71IN</td><td class="controller-td td_text">Broadlink</td></tr>
+<tr ><td class="file-td td_text">1902.json</td><td class="manufacturer-td td_text">TCL</td><td class="models-td td_text">TAC-09CSA/KEI, TAC-12CSA/KEI, TAC-18CSA/KEI, TAC-22CSA/KEI</td><td class="controller-td td_text">UFOR11</td></tr>
 <tr ><td class="file-td td_text">1920.json</td><td class="manufacturer-td td_text">Aokesi</td><td class="models-td td_text">Unknown</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1940.json</td><td class="manufacturer-td td_text">Electra</td><td class="models-td td_text">Unknown</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1941.json</td><td class="manufacturer-td td_text">Electra</td><td class="models-td td_text">Unknown</td><td class="controller-td td_text">Broadlink</td></tr>
@@ -325,6 +326,7 @@ The following are the code files created by the amazing people in the community.
 <tr ><td class="file-td td_text">4800.json</td><td class="manufacturer-td td_text">TechnoLux</td><td class="models-td td_text">KFR-25GW/F</td><td class="controller-td td_text">Xiaomi</td></tr>
 <tr ><td class="file-td td_text">5520.json</td><td class="manufacturer-td td_text">Hisense</td><td class="models-td td_text">AS-07UR4SYDD815G</td><td class="controller-td td_text">LOOKin</td></tr>
 <tr ><td class="file-td td_text">6686.json</td><td class="manufacturer-td td_text">Mitsubishi Heavy</td><td class="models-td td_text">SRK20ZSA-W, SRK25ZSA-W, SRK35ZSA-W, SRK50ZSA-W, SRK35ZS-W</td><td class="controller-td td_text">UFOR11</td></tr>
+<tr ><td class="file-td td_text">6687.json</td><td class="manufacturer-td td_text">Fujitsu</td><td class="models-td td_text">ASYG18LF, AR-RY12</td><td class="controller-td td_text">UFOR11</td></tr>
 <tr ><td class="file-td td_text">7062.json</td><td class="manufacturer-td td_text">LG</td><td class="models-td td_text">P12RK</td><td class="controller-td td_text">ESPHome</td></tr>
 <tr ><td class="file-td td_text">7065.json</td><td class="manufacturer-td td_text">LG</td><td class="models-td td_text">LG080EC, LG100EC, LG150EC, LG200EC</td><td class="controller-td td_text">ESPHome</td></tr>
 <tr ><td class="file-td td_text">7100.json</td><td class="manufacturer-td td_text">Daikin</td><td class="models-td td_text">FWT-GT</td><td class="controller-td td_text">ESPHome</td></tr>
