@@ -3,7 +3,7 @@
   "supportedModels": ["Tango"],
   "supportedController": "Broadlink",
   "commandsEncoding": "Base64",
-  "speed": ["low","medium","high"],
+  "speed": ["low", "medium", "high"],
   "commands": {
     "off": "JgDyACURKgwPKCgPKQ4PJxAnDygOKA0rDCoq6CgQKgwPKCoMKg0PKA4pDCoMKw8nECcn6isLKBAQJioNKA8MKhAnDygPJxAnDiom6yoMKBAMKioMKQ8MKhAnDycPKQwrCysq5igQKwsNKioMKg8KLAsrDCoPKA8nECco6ioNKQ4QJigRKQwPKA8nECcNKwwqDycq5ygPKg4MKSsMKA8QJw8oDygPJw0rCywp6CsMLAsPJygQKgwQJw4qCysMKgwrDygq5igPKwwNKioNKgwOKgssCysMKg8oDyco6ysLKBALKyoMKQ4RJg8oECYPKQwrCysqAA0FAAAAAAAA",
     "default": {
