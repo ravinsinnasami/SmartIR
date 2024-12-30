@@ -17,18 +17,8 @@
   "maxTemperature": 30.0,
   "temperatureUnit": "C",
   "precision": 1.0,
-  "operationModes": [
-    "heat",
-    "cool",
-    "heat_cool",
-    "fan_only"
-  ],
-  "fanModes": [
-    "low",
-    "mid",
-    "high",
-    "auto"
-  ],
+  "operationModes": ["heat", "cool", "heat_cool", "fan_only"],
+  "fanModes": ["low", "mid", "high", "auto"],
   "commands": {
     "off": "JgDKAIuOEjMSEBIzEjMREhEREjITEBIQEjQQEhIQEjMSMhMRETMTEBIyEjMSMxIzEhASMxIzEjMRERMQEhASEBMyEhERERMyETQRMxISERESEBIQExASEBIQExERMxIzEjISMxI0EqWLjxIyERISMhE1EhASEBMyEhATEBIzEhATEBIyEzISERE0EhASMxIzEjMSMxIQEjITMxE0EhASEBIREhASMxIREhASMxIyEjQRERIQExASEBIRFA4SEBIRETQSMhIzEjQRMxIADQU=",
     "heat": {
