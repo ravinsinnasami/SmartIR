@@ -113,9 +113,13 @@ class SmartIRLight(LightEntity, RestoreEntity):
         ):
             self._colortemp = self.max_color_temp_kelvin
 
-        if CMD_NIGHTLIGHT in self._commands or CMD_BRIGHTNESS in self._commands or (
-            CMD_BRIGHTNESS_INCREASE in self._commands
-            and CMD_BRIGHTNESS_DECREASE in self._commands
+        if (
+            CMD_NIGHTLIGHT in self._commands
+            or CMD_BRIGHTNESS in self._commands
+            or (
+                CMD_BRIGHTNESS_INCREASE in self._commands
+                and CMD_BRIGHTNESS_DECREASE in self._commands
+            )
         ):
             self._brightness = 100
             self._support_brightness = True
@@ -273,7 +277,10 @@ class SmartIRLight(LightEntity, RestoreEntity):
                     # If we are heading for the highest or lowest value,
                     # take the opportunity to resync by issuing enough
                     # commands to go the full range.
-                    if new_color_temp == len(self._colortemps) - 1 or new_color_temp == 0:
+                    if (
+                        new_color_temp == len(self._colortemps) - 1
+                        or new_color_temp == 0
+                    ):
                         steps = len(self._colortemps)
                     self._colortemp = self._colortemps[new_color_temp]
                     await self.send_command(cmd, steps)
@@ -293,7 +300,7 @@ class SmartIRLight(LightEntity, RestoreEntity):
                 old_brightness = DeviceData.closest_match(
                     self._brightness, self._brightnesses
                 )
-                new_brightness = DeviceData.closest_match(target, self._brightnesses)                
+                new_brightness = DeviceData.closest_match(target, self._brightnesses)
                 final_brightness = f"{self._brightnesses[new_brightness]}"
                 if (
                     CMD_BRIGHTNESS in self._commands

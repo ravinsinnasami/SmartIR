@@ -203,10 +203,10 @@ These are command to set controlled device into desired work state. Due to the n
     ],
 ```
 
-| json attribute    | mandatory |        type        | description                                                                                                                                                                                                                                                                                                                |
-| ----------------- | :-------: | :----------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `brightness` |   `no`   |      `array of int`      | List of supported brightness levels for the light in the range of 0 to 255.                       |
-| `colorTemperature`  |   `yes`   |    `array of int`    | List of supported color temperatures for the light in Kelvin (K).                             |
+| json attribute     | mandatory |      type      | description                                                                 |
+| ------------------ | :-------: | :------------: | --------------------------------------------------------------------------- |
+| `brightness`       |   `no`    | `array of int` | List of supported brightness levels for the light in the range of 0 to 255. |
+| `colorTemperature` |   `yes`   | `array of int` | List of supported color temperatures for the light in Kelvin (K).           |
 
 ### Light commands
 
@@ -233,10 +233,10 @@ Since the device state is only assumed without a power sensor, it is highly reco
 
 If a night command is specified, there is a special case when the requested brightness is 1, using the defined command:
 
-  ```yaml:
-  "commands": {
-      "night": "JgCSAAABKZIXEBcRFz.............",
-  ```
+```yaml:
+"commands": {
+    "night": "JgCSAAABKZIXEBcRFz.............",
+```
 
 #### Light brightness control
 
@@ -246,24 +246,24 @@ The brightness control functionality enables dynamic adjustments to the light’
 
 The brighten and dim commands incrementally adjust the brightness up or down, respectively.
 
-  ```yaml:
-  "commands": {
-      "brighten": "JgCSAAABKZIXEBcRFz.............",
-      "dim": "JgCSAAABKZIXEBcRFz.............",
-  ```
+```yaml:
+"commands": {
+    "brighten": "JgCSAAABKZIXEBcRFz.............",
+    "dim": "JgCSAAABKZIXEBcRFz.............",
+```
 
 ##### Light brightness commands
 
 Alternatively, each supported brightness level can have a dedicated command.
 
-  ```yaml:
-  "commands": {
-      "brightness": {
-        "26": "JgCSAAABKZIXEBcRFz.............",
-        "51": "JgCSAAABKZIXEBcRFz.............",
-        ...
-      }
-  ```
+```yaml:
+"commands": {
+    "brightness": {
+      "26": "JgCSAAABKZIXEBcRFz.............",
+      "51": "JgCSAAABKZIXEBcRFz.............",
+      ...
+    }
+```
 
 #### Light color temperature control
 
@@ -273,24 +273,24 @@ Color temperature control allows users to adjust the warmth or coolness of the l
 
 The colder and warmer commands provide a general way to adjust the color temperature incrementally.
 
-  ```yaml:
-  "commands": {
-      "colder": "JgCSAAABKZIXEBcRFz.............",
-      "warmer": "JgCSAAABKZIXEBcRFz.............",
-  ```
+```yaml:
+"commands": {
+    "colder": "JgCSAAABKZIXEBcRFz.............",
+    "warmer": "JgCSAAABKZIXEBcRFz.............",
+```
 
 ##### Light colorTemperature commands
 
 Alternatively, commands can be defined for each supported color temperature value.
 
-  ```yaml:
-  "commands": {
-      "colorTemperature": {
-        "2700": "JgCSAAABKZIXEBcRFz.............",
-        "4600": "JgCSAAABKZIXEBcRFz.............",
-        "6500": "JgCSAAABKZIXEBcRFz.............",
-      }
-  ```
+```yaml:
+"commands": {
+    "colorTemperature": {
+      "2700": "JgCSAAABKZIXEBcRFz.............",
+      "4600": "JgCSAAABKZIXEBcRFz.............",
+      "6500": "JgCSAAABKZIXEBcRFz.............",
+    }
+```
 
 ## Fan Speficic
 
