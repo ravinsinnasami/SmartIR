@@ -16,6 +16,7 @@ The following are the code files created by the amazing people in the community.
 <tr ><td class="file-td td_text">1063.json</td><td class="manufacturer-td td_text">Samsung</td><td class="models-td td_text">UN55JU7500</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1064.json</td><td class="manufacturer-td td_text">Samsung</td><td class="models-td td_text">QE49Q7FAM</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1065.json</td><td class="manufacturer-td td_text">Samsung</td><td class="models-td td_text">QE65Q67RAUXRU</td><td class="controller-td td_text">Broadlink</td></tr>
+<tr ><td class="file-td td_text">1066.json</td><td class="manufacturer-td td_text">Samsung</td><td class="models-td td_text">HT-J5500</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1080.json</td><td class="manufacturer-td td_text">Insignia</td><td class="models-td td_text">NS-42D510NA15</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1100.json</td><td class="manufacturer-td td_text">Toshiba</td><td class="models-td td_text">42C3530D</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1120.json</td><td class="manufacturer-td td_text">Yamaha</td><td class="models-td td_text">Unknown</td><td class="controller-td td_text">Broadlink</td></tr>
