@@ -2,22 +2,13 @@
   "minTemperature": 16,
   "maxTemperature": 31,
   "manufacturer": "Mitsubishi Electric",
-  "operationModes": [
-    "heat",
-    "cool",
-    "dry",
-    "fan_only"
-  ],
-  "fanModes": [
-    "auto"
-  ],
+  "operationModes": ["heat", "cool", "dry", "fan_only"],
+  "fanModes": ["auto"],
   "commandsEncoding": "Base64",
   "precision": 1,
   "temperatureUnit": "C",
   "supportedController": "Broadlink",
-  "supportedModels": [
-    "Remote SG15H"
-  ],
+  "supportedModels": ["Remote SG15H"],
   "commands": {
     "off": "JgBMAms4DCsMKwwPDQ8MDw0qDQ8MDwwrDCsMDw0qDQ8MDw0qDSoMDw0qDSoNDwwPDSoNDwwPDCsMDw0PDA8NDwwPDQ8MDw0PDA8MEAwPDA8NDwwPDQ8MDw0PDA8NDwwPDBAMDwwPDQ8MDw0PDCsMDw0PDCoNDw0PDCoNKg0PDA8NDwwPDQ8MDwwQDA8MDw0qDSoNDwwPDQ8MDwwQDA8MDw0PDCsMDw0PDA8NDwwPDQ8MDwwQDA8MDw0PDA8NDwwPDQ8MDw0PDA8NDwwPDA8NDwwPDQ8MDw0PDA8NDwwPDQ8MDwwPDQ8MDw0PDA8NDwwrDA8NDwwPDBAMDwwPDQ8MDw0PDA8NDwwPDQ8MDw0PDA8MDw0PDA8NKg0qDQ8MDw0PDCoNKg0qDQABdG04DSoNKg0PDA8MDw0qDQ8MDw0qDSoNDwwqDQ8MDw0qDSoNDwwrDCoNDwwPDSoNDwwPDSoNDwwPDBAMDwwPDQ8MDw0PDA8NDwwPDQ8MDw0PDA8MDw0PDA8NDwwPDQ8MDw0PDA8NDwwPDCsMDw0PDCsMDw0PDCsMKg0PDA8NDwwPDQ8MDw0PDA8NDwwqDSoNDwwPDQ8MDw0PDA8NDwwPDSoNDwwPDA8NDwwPDQ8MDw0PDA8NDwwPDQ8MDwwQDA8MDw0PDA8NDwwPDQ8MDw0PDA8MEAwPDA8NDwwPDQ8MDw0PDA8NDwwPDBAMDw0qDA8NDwwPDQ8MDw0PDA8MEAwPDA8NDwwPDQ8MDw0PDA8NDwwPDQ8MKg0qDQ8MDw0PDCsMKwwqDQANBQ==\n",
     "cool": {

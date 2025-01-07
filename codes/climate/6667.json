@@ -1,33 +1,15 @@
 {
-  "manufacturer":"Fujitsu",
-  "supportedModels":[
-    "AR-REG1U",
-    "ASMG18CMCA"
-  ],
-  "supportedController":"Broadlink",
-  "commandsEncoding":"Base64",
-  "minTemperature":16.0,
-  "maxTemperature":30.0,
+  "manufacturer": "Fujitsu",
+  "supportedModels": ["AR-REG1U", "ASMG18CMCA"],
+  "supportedController": "Broadlink",
+  "commandsEncoding": "Base64",
+  "minTemperature": 16.0,
+  "maxTemperature": 30.0,
   "temperatureUnit": "C",
-  "precision":1.0,
-  "operationModes":[
-    "heat",
-    "cool",
-    "dry",
-    "fan_only",
-    "heat_cool"
-  ],
-  "fanModes":[
-    "auto",
-    "high",
-    "medium",
-    "low",
-    "quiet"
-  ],
-  "swingModes":[
-    "off",
-    "vertical"
-  ],
+  "precision": 1.0,
+  "operationModes": ["heat", "cool", "dry", "fan_only", "heat_cool"],
+  "fanModes": ["auto", "high", "medium", "low", "quiet"],
+  "swingModes": ["off", "vertical"],
   "commands": {
     "heat": {
       "auto": {
