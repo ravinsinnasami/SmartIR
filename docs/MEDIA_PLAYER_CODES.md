@@ -50,6 +50,7 @@ The following are the code files created by the amazing people in the community.
 <tr ><td class="file-td td_text">1520.json</td><td class="manufacturer-td td_text">JVC</td><td class="models-td td_text">RX-5022R</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1540.json</td><td class="manufacturer-td td_text">Epson</td><td class="models-td td_text">MG-850HD</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1580.json</td><td class="manufacturer-td td_text">Dialog</td><td class="models-td td_text">J-103BF</td><td class="controller-td td_text">Broadlink</td></tr>
+<tr ><td class="file-td td_text">1600.json</td><td class="manufacturer-td td_text">i-CAN</td><td class="models-td td_text">4000S</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">7060.json</td><td class="manufacturer-td td_text">Samsung</td><td class="models-td td_text">UA32EH5000M</td><td class="controller-td td_text">ESPHome</td></tr>
 <tr ><td class="file-td td_text">7460.json</td><td class="manufacturer-td td_text">ZTE</td><td class="models-td td_text">B860H</td><td class="controller-td td_text">ESPHome</td></tr>
 <tr ><td class="file-td td_text">8100.json</td><td class="manufacturer-td td_text">Cambridge Audio</td><td class="models-td td_text">AXR100</td><td class="controller-td td_text">Broadlink</td></tr>
