@@ -338,6 +338,5 @@ The following are the code files created by the amazing people in the community.
 <tr ><td class="file-td td_text">7300.json</td><td class="manufacturer-td td_text">SHARP</td><td class="models-td td_text">AH-AP9GMY</td><td class="controller-td td_text">ESPHome</td></tr>
 <tr ><td class="file-td td_text">7386.json</td><td class="manufacturer-td td_text">Midea</td><td class="models-td td_text">KFR-32GW</td><td class="controller-td td_text">ESPHome</td></tr>
 <tr ><td class="file-td td_text">7740.json</td><td class="manufacturer-td td_text">Kelvinator</td><td class="models-td td_text">KSV25HWH</td><td class="controller-td td_text">ESPHome</td></tr>
-<tr ><td class="file-td td_text">8700.json</td><td class="manufacturer-td td_text">Kolin</td><td class="models-td td_text">KAG-145RSINV</td><td class="controller-td td_text">ESPHome</td></tr>
-<tr ><td class="file-td td_text">9999.json</td><td class="manufacturer-td td_text">Mitsubishi Electric</td><td class="models-td td_text">MSXY-FN18VE</td><td class="controller-td td_text">UFOR11</td></tr></tbody></table>
+<tr ><td class="file-td td_text">8700.json</td><td class="manufacturer-td td_text">Kolin</td><td class="models-td td_text">KAG-145RSINV</td><td class="controller-td td_text">ESPHome</td></tr></tbody></table>
 <!-- MARKDOWN-AUTO-DOCS:END -->
