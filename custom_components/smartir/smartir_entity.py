@@ -258,19 +258,3 @@ class SmartIR:
     def supported_features(self):
         """Flag media player features that are supported."""
         return self._support_flags
-
-    @staticmethod
-    async def closest_match(value, list):
-        prev_val = None
-        for index, entry in enumerate(list):
-            if entry > (value or 0):
-                if prev_val is None:
-                    return index
-                diff_lo = value - prev_val
-                diff_hi = entry - value
-                if diff_lo < diff_hi:
-                    return index - 1
-                return index
-            prev_val = entry
-
-        return len(list) - 1
