@@ -640,7 +640,11 @@ class SmartIRClimate(SmartIR, ClimateEntity, RestoreEntity):
                         if "-" in commands.keys():
                             temperature = "-"
                             commands = commands["-"]
-                        elif ( temp := closest_match_value(target_temperature, commands.keys()) and temp is not None ):
+                        elif (
+                            temp := closest_match_value(
+                                target_temperature, commands.keys()
+                            )
+                        ) and temp is not None:
                             # convert selected device temperature back to HA units
                             temp_ha = convert_temp(
                                 temp,
@@ -652,13 +656,13 @@ class SmartIRClimate(SmartIR, ClimateEntity, RestoreEntity):
                                 "Input HA temperature '%s%s' closest found device temperature command '%s%s' converts back into HA '%s%s' temperature.",
                                 temperature,
                                 self._ha_temperature_unit,
-                                temp[0],
+                                temp,
                                 self._data_temperature_unit,
                                 temp_ha,
                                 self._ha_temperature_unit,
                             )
                             temperature = temp_ha
-                            commands = commands[str(temp[0])]
+                            commands = commands[str(temp)]
                         else:
                             _LOGGER.error(
                                 "Missing device IR codes for selected '%s' temperature.",
