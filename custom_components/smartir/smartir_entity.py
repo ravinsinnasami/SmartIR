@@ -5,11 +5,7 @@ import os.path
 import voluptuous as vol
 from homeassistant.core import HomeAssistant, Event, EventStateChangedData, callback
 from homeassistant.components.climate import PLATFORM_SCHEMA
-from homeassistant.const import (
-    CONF_NAME,
-    STATE_ON,
-    STATE_OFF
-)
+from homeassistant.const import CONF_NAME, STATE_ON, STATE_OFF
 from homeassistant.helpers.event import async_track_state_change_event, async_call_later
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.typing import ConfigType
