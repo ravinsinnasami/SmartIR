@@ -8,9 +8,7 @@ from homeassistant.components.climate import PLATFORM_SCHEMA
 from homeassistant.const import (
     CONF_NAME,
     STATE_ON,
-    STATE_OFF,
-    STATE_UNKNOWN,
-    STATE_UNAVAILABLE,
+    STATE_OFF
 )
 from homeassistant.helpers.event import async_track_state_change_event, async_call_later
 import homeassistant.helpers.config_validation as cv

@@ -10,8 +10,7 @@ from homeassistant.components.fan import (
     DIRECTION_FORWARD,
 )
 from homeassistant.const import CONF_NAME, STATE_OFF, STATE_ON, STATE_UNKNOWN
-from homeassistant.core import HomeAssistant, Event, EventStateChangedData, callback
-from homeassistant.helpers.event import async_track_state_change_event, async_call_later
+from homeassistant.core import HomeAssistant, Event, EventStateChangedData
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers.typing import ConfigType
@@ -203,13 +202,50 @@ class SmartIRFan(FanEntity, RestoreEntity):
 
             try:
                 if state == STATE_OFF:
-                    if "off" in self._commands:
-                        await self._controller.send(self._commands["off"])
-                        await asyncio.sleep(self._delay)
+                    if "off" in self._commands.keys() and isinstance(
+                        self._commands["off"], str
+                    ):
+                        if (
+                            "on" in self._commands.keys()
+                            and isinstance(self._commands["on"], str)
+                            and self._commands["on"] == self._commands["off"]
+                            and self._state == STATE_OFF
+                        ):
+                            # prevent to resend 'off' command if same as 'on' and device is already off
+                            _LOGGER.debug(
+                                "As 'on' and 'off' commands are identical and device is already in requested '%s' state, skipping sending '%s' command",
+                                self._state,
+                                "off",
+                            )
+                        else:
+                            _LOGGER.debug("Found 'off' operation mode command.")
+                            await self._controller.send(self._commands["off"])
+                            await asyncio.sleep(self._delay)
                     else:
                         _LOGGER.error("Missing device IR code for 'off' mode.")
                         return
                 else:
+                    if "on" in self._commands.keys() and isinstance(
+                        self._commands["on"], str
+                    ):
+                        if (
+                            "off" in self._commands.keys()
+                            and isinstance(self._commands["off"], str)
+                            and self._commands["off"] == self._commands["on"]
+                            and self._state == STATE_ON
+                        ):
+                            # prevent to resend 'on' command if same as 'off' and device is already on
+                            _LOGGER.debug(
+                                "As 'on' and 'off' commands are identical and device is already in requested '%s' state, skipping sending '%s' command",
+                                self._state,
+                                "on",
+                            )
+                        else:
+                            # if on code is not present, the on bit can be still set later in the all operation/fan codes"""
+                            _LOGGER.debug("Found 'on' operation mode command.")
+                            await self._controller.send(self._commands["on"])
+                            await asyncio.sleep(self._delay)
+
                     if oscillate:
                         if "oscillate" in self._commands:
                             await self._controller.send(self._commands["oscillate"])
