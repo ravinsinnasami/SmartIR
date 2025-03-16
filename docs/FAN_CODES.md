@@ -5,6 +5,7 @@ The following are the code files created by the amazing people in the community.
 <!-- MARKDOWN-AUTO-DOCS:START (JSON_TO_HTML_TABLE:src=./docs/fan_codes.json) -->
 <table class="JSON-TO-HTML-TABLE"><thead><tr><th class="file-th">file</th><th class="manufacturer-th">manufacturer</th><th class="models-th">models</th><th class="controller-th">controller</th></tr></thead><tbody ><tr ><td class="file-td td_text">1000.json</td><td class="manufacturer-td td_text">Kaze</td><td class="models-td td_text">Unknown</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1020.json</td><td class="manufacturer-td td_text">Acorn</td><td class="models-td td_text">Unknown</td><td class="controller-td td_text">Broadlink</td></tr>
+<tr ><td class="file-td td_text">1030.json</td><td class="manufacturer-td td_text">NSB</td><td class="models-td td_text">Unknown</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1040.json</td><td class="manufacturer-td td_text">Lucci Air</td><td class="models-td td_text">Aria</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1041.json</td><td class="manufacturer-td td_text">Lucci Air</td><td class="models-td td_text">Whitehaven DC</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1060.json</td><td class="manufacturer-td td_text">Super Fan</td><td class="models-td td_text">Super Fan A1</td><td class="controller-td td_text">Broadlink</td></tr>
